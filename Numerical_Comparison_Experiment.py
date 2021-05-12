@@ -8,8 +8,10 @@ import random
 import listes
 from expyriment import design, control, stimuli
 
+STANDARD = listes.MEAN_2DIGITS_NUMBER
+TRAINING_LIST_LENGHT = 10
 MAX_RESPONSE_DELAY = 2000
-TARGETS = Liste.create_valid_experimental_list(listes.MEAN_2DIGITS_NUMBER, 10)
+TARGETS = listes.create_valid_experimental_list(STANDARD, TRAINING_LIST_LENGHT)
 SMALLER_RESPONSE = 'f'
 LARGER_RESPONSE = 'j'
 
@@ -19,16 +21,16 @@ control.initialize(exp)
 cue = stimuli.FixCross(size = (80, 80), line_width = 4)
 blankscreen = stimuli.BlankScreen()
 instructions = stimuli.TextScreen("Instructions",
-    f"""You will see two-digit numbers, distributed around 55, appear on the screen one by one.
-    You task is to decide as fast as possible but by minimising errors, whether it is smaller or larger than 55.
+    f"""You will see two-digit numbers, distributed around {STANDARD}, appear on the screen one by one.
+    You task is to decide as fast as possible but by minimising errors, whether it is smaller or larger than {STANDARD}.
     
-    If it is smaller than 55, press '{SMALLER_RESPONSE}'
-    If it is larger than 55, press '{LARGER_RESPONSE}'
+    If it is smaller than {STANDARD}, press '{SMALLER_RESPONSE}'
+    If it is larger than {STANDARD}, press '{LARGER_RESPONSE}'
     
     There will be {len(TARGETS)} trials in total.
     Press the space bar to start.""")
 
-# prepare the stimuli
+# Prepare the stimuli
 trials = []
 for number in TARGETS:
     trials.append((number, stimuli.TextLine(str(number), text_size = 200)))
@@ -48,5 +50,5 @@ for t in trials:
     t[1].present()
     key, rt = exp.keyboard.wait(SMALLER_RESPONSE + LARGER_RESPONSE, duration = MAX_RESPONSE_DELAY)
     exp.data.add([t[0],  key, rt])
-
-control.end()
+# This function from expyriment saves automatically participant data
+control.end() 
