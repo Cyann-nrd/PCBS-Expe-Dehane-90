@@ -5,11 +5,11 @@ it is larger than 55.
 """
 
 import random
-import Liste
+import listes
 from expyriment import design, control, stimuli
 
 MAX_RESPONSE_DELAY = 2000
-TARGETS = Liste.create_valid_experimental_list(Liste.MEAN_2DIGITS_NUMBER, 10)
+TARGETS = Liste.create_valid_experimental_list(listes.MEAN_2DIGITS_NUMBER, 10)
 SMALLER_RESPONSE = 'f'
 LARGER_RESPONSE = 'j'
 
