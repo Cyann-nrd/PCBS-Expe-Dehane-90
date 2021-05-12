@@ -9,16 +9,27 @@ CENTRAL_REPETITION = 4
 MEAN_2DIGITS_NUMBER = int((MIN_2DIGITS_NUMBER +  MAX_2DIGITS_NUMBER) / 2)
 
                 
-def create_task_list():
-    intermediate_lower_bound =  (MEAN_2DIGITS_NUMBER - INTERVAL) + 1
-    intermediate_higher_bound = (MEAN_2DIGITS_NUMBER + INTERVAL)
+def create_task_list(standard = MEAN_2DIGITS_NUMBER,
+                                    minimal_number = MIN_2DIGITS_NUMBER,
+                                    maximal_number = MAX_2DIGITS_NUMBER,
+                                    interval = INTERVAL,
+                                    extremal_repetiton = EXTREMAL_REPETITION,
+                                    central_repetition = CENTRAL_REPETITION):
+    
+    intermediate_lower_bound =  (standard - interval) + 1
+    intermediate_higher_bound = (standard + interval)
 
-    lower_list =                        list(range(MIN_2DIGITS_NUMBER         , intermediate_lower_bound))
-    intermediate_lower_list = list(range(intermediate_lower_bound   ,  MEAN_2DIGITS_NUMBER))
-    intermediate_higher_list= list(range(MEAN_2DIGITS_NUMBER + 1    ,  intermediate_higher_bound))
-    higher_list =                       list(range(intermediate_higher_bound  , MAX_2DIGITS_NUMBER + 1))
+    lower_list =                        list(range(minimal_number                     , intermediate_lower_bound))
+    intermediate_lower_list = list(range(intermediate_lower_bound   , standard))
+    intermediate_higher_list= list(range(standard + 1                           , intermediate_higher_bound))
+    higher_list =                       list(range(intermediate_higher_bound  , maximal_number + 1))
 
-    task_list = (lower_list * EXTREMAL_REPETITION) + (intermediate_lower_list * CENTRAL_REPETITION) + (intermediate_higher_list * CENTRAL_REPETITION) + (higher_list * EXTREMAL_REPETITION)
+    task_list = (
+        (lower_list * extremal_repetiton) +
+        (intermediate_lower_list * central_repetition) +
+        (intermediate_higher_list * central_repetition) +
+        (higher_list * extremal_repetiton)
+    )
     random.shuffle(task_list)
     return task_list
 
@@ -93,7 +104,7 @@ def create_valid_experimental_list(standard, training_list_length):
 
 
 
-################# Unuse fonctions
+################# Unused fonctions
 
 def has_2_consecutive_elements_identical_in_list(my_list):
     my_list_without_first_element = my_list[1:]

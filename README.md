@@ -1,8 +1,9 @@
 # Is Numerical Comparison Digital? Analogical and Symbolic Effects in Two-Digit Number Comparison
 
-## Goal of the experiment
+## Goal of this project
 
-Replication of the expertiment of **Is Numerical Comparison Digital? Analogical and Symbolic Effects in Two-Digit Number Comparison** by Stanislas Dehaene, Emmanuel Dupoux and Jacques Mehler in 1990. 
+This project is a replication of the experiment of **Is Numerical Comparison Digital? Analogical and Symbolic Effects in Two-Digit Number Comparison** by Stanislas Dehaene, Emmanuel Dupoux and Jacques Mehler in 1990.
+
 The aim of this study is to investigate the distance effect. It is the increasing of reaction time for deciding which of two digits is the largest when the numerical distance between the two decreases.
 
 
@@ -13,8 +14,12 @@ The participant were asked to press the right-hand response key (j) if the numbe
 
 ## Stimuli
 
-The task shows two-digit numbers (between 11 and 99), displayed for 2 s each and followed by a fixation cross for also 2 s.
+The task shows two-digit numbers (between 11 and 99), approximately 3 cm high, displayed for 2 s each and followed by a fixation cross for also 2 s.
 
 A task list was created with all numbers from 11 to 99, except the standard 55. Numbers ranging from 41 to 69 were presented four times; numbers outside this interval were presented twice. This list was pseudorandomised fulfilling the additional constraints that (a) the same number never be presented twice in a row, and (b) subjects never press the same key more than three times in a row.
 
 An additional training list was presented before the beginning of the task. This list was constituted by 10 numbers picked randomly in the same interval of two_digit numbers as the task list. co Data from these 10 trials were not included in the analyses.
+
+## Expected results
+
+Results shows that Reaction Times (RTs) decreased with target-standard distance. The data are compatible with the holistic model: participants compare multidigit numbers by computing the whole magnitude of the numbers before comparing them.
